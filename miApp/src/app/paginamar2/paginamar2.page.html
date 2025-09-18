@@ -30,14 +30,17 @@
     
     <ion-card-header>
       <ion-item lines="none">
+
         <ion-avatar slot="start">
           <img alt="Logo" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
         </ion-avatar>
 
+
         <ion-label>
-          <ion-card-title class="ion-text-center">
-            Historial del paciente xxxx
-          </ion-card-title>
+         <app-paciente-header
+    [titulo]="'Consultas del Paciente ' + patientName"
+    subtitulo="Revisa el detalle de las consultas realizadas!">
+  </app-paciente-header>
         </ion-label>
       </ion-item>
     </ion-card-header>

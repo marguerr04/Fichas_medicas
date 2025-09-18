@@ -1,18 +1,53 @@
-// src/app/home/home.page.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { RouterLink } from '@angular/router';   
-
+import { RouterModule } from '@angular/router';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardHeader,
+  IonItem,
+  IonAvatar,
+  IonLabel,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonIcon,
+  IonButton,
+  IonButtons,
+  IonMenuButton,
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  standalone: true,
-  imports: [CommonModule, IonicModule, RouterLink] 
+  imports: [IonHeader,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardHeader,
+    IonItem,
+    IonAvatar,
+    IonLabel,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent,
+    IonIcon,
+    IonButton,
+    RouterModule,
+    IonButtons,
+    IonMenuButton],
 })
-export class HomePage {}
-
-
-
+export class HomePage {
+  constructor() {}
+}
