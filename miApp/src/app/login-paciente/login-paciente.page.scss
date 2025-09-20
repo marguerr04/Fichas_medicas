@@ -17,6 +17,15 @@ ion-content {
   color: #000000;
   margin: 0 auto 20px auto;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+
+   overflow: hidden; // recorte de la imagen si sobra
+
+  img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+  }
 }
 
 .login-title {
@@ -39,3 +48,5 @@ ion-item {
   margin-bottom: 30px;
   border-radius: 10px;
 }
+
+

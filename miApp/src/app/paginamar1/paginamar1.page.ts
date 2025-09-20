@@ -18,6 +18,8 @@ import {
   IonLabel,
   IonBreadcrumbs,
   IonBreadcrumb, 
+  IonButtons,
+  IonMenuButton,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -43,10 +45,12 @@ import {
     IonLabel,
     IonBreadcrumbs,
     IonBreadcrumb,
+    IonButtons,
+    IonMenuButton,
   ],
 })
 export class Paginamar1Page {
-  public patientName: string = 'María García';
+  public patientName: string = 'Juan Peréz';
   public totalScans: number = 4;
 
   constructor() {}

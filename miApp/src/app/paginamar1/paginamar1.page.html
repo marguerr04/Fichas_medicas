@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
     <ion-breadcrumbs>
       <ion-breadcrumb routerLink="/home">Home</ion-breadcrumb>
       <ion-breadcrumb routerLink="/paginamar1">Historial</ion-breadcrumb>
@@ -12,7 +16,7 @@
 
   <app-paciente-header
     [titulo]="'Historial del paciente ' + patientName"
-    subtitulo="Seleccione una opción para continuars">
+    subtitulo="Seleccione una opción para continuar">
   </app-paciente-header>
 
     <ion-card>

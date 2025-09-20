@@ -25,3 +25,33 @@
 #container a {
   text-decoration: none;
 }
+
+
+ion-content {
+  --background: #0e7787;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+
+
+.ficha-titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+  margin-top: 10px;
+}
+
+
+.perfil-header {
+  --background: #0a2d4f; // Un gris azulado oscuro y moderno
+  color: #ffffff; // Aseguramos que el texto siga siendo blanco
+}
+
+
+.perfil-header ion-item {
+  --background: #104c88; // Mismo color de fondo para el item
+}

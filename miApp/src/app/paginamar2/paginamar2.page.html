@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-
+        <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
 
 
     <ion-breadcrumbs>
@@ -31,15 +33,10 @@
     <ion-card-header>
       <ion-item lines="none">
 
-        <ion-avatar slot="start">
-          <img alt="Logo" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        </ion-avatar>
-
-
         <ion-label>
          <app-paciente-header
     [titulo]="'Consultas del Paciente ' + patientName"
-    subtitulo="Revisa el detalle de las consultas realizadas!">
+    subtitulo="Revisa el detalle de las consultas realizadas">
   </app-paciente-header>
         </ion-label>
       </ion-item>
@@ -48,16 +45,16 @@
   
   <!-- Lista de consultas -->
   <ion-list>
-    <ion-item button detail="true">Consulta 1 - fecha DD/MM/YYYY</ion-item>
-    <ion-item button detail="true">Consulta 2 - fecha DD/MM/YYYY</ion-item>
-    <ion-item button detail="true">Consulta 3 - fecha DD/MM/YYYY</ion-item>
-    <ion-item button detail="true">Consulta 4 - fecha DD/MM/YYYY</ion-item>
+    <ion-item button detail="true">Consulta 1 - fecha 01/12/2024</ion-item>
+    <ion-item button detail="true">Consulta 2 - fecha 02/11/2024</ion-item>
+    <ion-item button detail="true">Consulta 3 - fecha 03/10/2024</ion-item>
+    <ion-item button detail="true">Consulta 4 - fecha 04/09/2024</ion-item>
   </ion-list>
 
   <!-- Última consulta destacada -->
   <ion-card color="danger">
     <ion-card-content class="ion-text-center">
-      Última consulta: Hace X días
+      Última consulta: Hace 20 días
     </ion-card-content>
   </ion-card>
 

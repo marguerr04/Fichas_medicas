@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router'; // 1. IMPORTA Router y RouterLink
-
-// 2. IMPORTA TODOS los componentes de Ionic que usas en el HTML
+import { Router, RouterLink } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { personCircleOutline, documentTextOutline, logOutOutline } from 'ionicons/icons';
 import {
   IonApp,
   IonMenu,
@@ -13,15 +13,14 @@ import {
   IonItem,
   IonIcon,
   IonLabel,
-  IonRouterOutlet, // Es importante para que las páginas se muestren
+  IonRouterOutlet,
 } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  standalone: true, // Tu componente principal también es standalone
-  // 3. AÑADE todos los componentes al array de 'imports'
+  standalone: true,
   imports: [
     IonApp,
     IonMenu,
@@ -34,14 +33,21 @@ import {
     IonIcon,
     IonLabel,
     IonRouterOutlet,
-    RouterLink, // Necesario para que [routerLink] funcione
+    RouterLink,
   ],
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    addIcons({
+      personCircleOutline,
+      documentTextOutline,
+      logOutOutline,
+    });
+  }
 
   cerrarSesion() {
     console.log('Cerrando sesión...');
     this.router.navigateByUrl('/login-paciente');
   }
+
 }

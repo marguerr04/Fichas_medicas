@@ -12,7 +12,7 @@ import { PacienteHeaderComponent } from '../componentes/paciente-header/paciente
   imports: [CommonModule, RouterModule, IonicModule, PacienteHeaderComponent]
 })
 export class Paginamar2Page {
-   patientName: string = 'Emilio 2°'; // <-- La página puede tener sus propias variables
+   patientName: string = 'Juan Peréz'; // <-- La página puede tener sus propias variables
   constructor(){}
 
 }
