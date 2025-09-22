@@ -4,3 +4,7 @@ ion-content {
   justify-content: flex-start;
   align-items: center;
 }
+
+ion-content {
+  --background: var(--ion-color-light);
+}

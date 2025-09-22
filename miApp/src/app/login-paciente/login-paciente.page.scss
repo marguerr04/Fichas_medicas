@@ -50,3 +50,23 @@ ion-item {
 }
 
 
+ion-content {
+  // Un fondo claro y limpio
+  --background: var(--ion-color-light);
+}
+
+.login-logo {
+  font-size: 100px; // Tamaño del icono
+  margin-bottom: 20px;
+}
+
+.login-title {
+  // Texto oscuro sobre fondo claro
+  color: var(--ion-color-dark);
+  font-weight: 600;
+}
+
+ion-button {
+  margin-top: 30px;
+  height: 48px; // Botón más prominente
+}
