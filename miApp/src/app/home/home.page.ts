@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Necesario para *ngFor
+import { Observable } from 'rxjs';
+import { PacientesService } from '../core/servicios/pacientes';
+import { Paciente } from '../core/models/ficha-medica';
+
 import {
   IonHeader,
   IonToolbar,
@@ -26,7 +31,10 @@ import {
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader,
+  standalone: true, // Se añade la propiedad standalone
+  imports: [
+    CommonModule, // Se añade CommonModule para usar *ngFor y el pipe async
+    RouterModule,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -44,10 +52,17 @@ import {
     IonCardContent,
     IonIcon,
     IonButton,
-    RouterModule,
     IonButtons,
-    IonMenuButton],
+    IonMenuButton
+  ],
 })
-export class HomePage {
-  constructor() {}
+export class HomePage implements OnInit {
+  public pacientes$!: Observable<Paciente[]>;
+
+  // Se unifican los dos constructores en uno solo
+  constructor(private pacientesService: PacientesService) {}
+
+  ngOnInit() {
+    this.pacientes$ = this.pacientesService.getPacientes();
+  }
 }

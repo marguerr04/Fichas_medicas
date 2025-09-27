@@ -10,7 +10,7 @@ import { getAnalytics } from "firebase/analytics";
 export const environment = {
   production: false,
 
-  firebase : {
+  firebase: {
   apiKey: "AIzaSyAMf4hZhPnwJMXdlfx0xWDgXMSfDOPVbVc",
   authDomain: "vitalog-app-36390.firebaseapp.com",
   projectId: "vitalog-app-36390",
