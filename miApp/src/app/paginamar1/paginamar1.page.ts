@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { PacienteHeaderComponent } from '../componentes/paciente-header/paciente-header.component';
 
 

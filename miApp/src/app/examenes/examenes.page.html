@@ -7,7 +7,7 @@
     <ion-breadcrumbs>
   <ion-breadcrumb routerLink="/home">Home</ion-breadcrumb>
   <ion-breadcrumb routerLink="/paginamar1">Historial</ion-breadcrumb>
-  <ion-breadcrumb routerLink="/paginamar2">Consultas</ion-breadcrumb>
+  <ion-breadcrumb routerLink="/examenes">Exámenes</ion-breadcrumb>
 </ion-breadcrumbs>
 
     <!-- Botón de filtro a la derecha del toolbar -->
@@ -23,42 +23,36 @@
 
   <!-- Logo + Título centrado -->
   <ion-card>
-
-    
     <ion-card-header>
       <ion-item lines="none">
-
         <ion-label>
          <app-paciente-header
-    [titulo]="'Consultas del Paciente ' + patientName"
-    subtitulo="Revisa el detalle de las consultas realizadas">
+    [titulo]="'Exámenes del Paciente ' + patientName"
+    subtitulo="Revisa el detalle de los exámenes realizadas">
   </app-paciente-header>
         </ion-label>
       </ion-item>
     </ion-card-header>
   </ion-card>
   
-  <!-- Lista de consultas -->
   <ion-list>
-    <ion-item button detail="true">Consulta 1 - fecha 01/12/2024</ion-item>
-    <ion-item button detail="true">Consulta 2 - fecha 02/11/2024</ion-item>
-    <ion-item button detail="true">Consulta 3 - fecha 03/10/2024</ion-item>
-    <ion-item button detail="true">Consulta 4 - fecha 04/09/2024</ion-item>
+    <ion-item button detail="true">Exámen 1 - fecha 11/10/2023</ion-item>
+    <ion-item button detail="true">Exámen 2 - fecha 03/09/2024</ion-item>
+    <ion-item button detail="true">Exámen 3 - fecha 21/4/2025</ion-item>
   </ion-list>
 
-  <!-- Última consulta destacada -->
   <ion-card color="danger">
     <ion-card-content class="ion-text-center">
-      Última consulta: Hace 20 días
+      Último exámen: Hace 5 meses y 6 días
     </ion-card-content>
   </ion-card>
+
+  <ion-button expand="block" color="medium" routerLink="/nuevoexamen">
+    Añadir exámen
+  </ion-button>  
 
   <!-- Botón volver -->
   <ion-button expand="block" color="medium" routerLink="/home">
     Volver a Home
-  </ion-button>
-
-
-
-  
+  </ion-button>  
 </ion-content>

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+        <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-breadcrumbs>
+  <ion-breadcrumb routerLink="/home">Home</ion-breadcrumb>
+  <ion-breadcrumb routerLink="/paginamar1">Historial</ion-breadcrumb>
+  <ion-breadcrumb routerLink="/examenes">Exámenes</ion-breadcrumb>
+</ion-breadcrumbs>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Logo + Título centrado -->
+  <ion-card>
+    <ion-card-header>
+      <ion-item lines="none">
+        <ion-label>
+         <app-paciente-header
+    [titulo]="titulo">
+  </app-paciente-header>
+        </ion-label>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-button expand="block" color="#00cc99" routerLink="/examenes">
+    Añadir exámen
+  </ion-button>  
+
+  <!-- Botón volver -->
+  <ion-button expand="block" color="medium" routerLink="/examenes">
+    Cancelar
+  </ion-button>  
+</ion-content>

@@ -52,7 +52,15 @@ export const routes: Routes = [
   { path: 'paginamar3', loadComponent: () => import('./paginamar3/paginamar3.page').then(m => m.Paginamar3Page) },
   { path: 'paginamar4', loadComponent: () => import('./paginamar4/paginamar4.page').then(m => m.Paginamar4Page) },
   { path: 'paginamar5', loadComponent: () => import('./paginamar5/paginamar5.page').then(m => m.Paginamar5Page) },
-  { path: 'paginamar6', loadComponent: () => import('./paginamar6/paginamar6.page').then(m => m.Paginamar6Page) }
+  { path: 'paginamar6', loadComponent: () => import('./paginamar6/paginamar6.page').then(m => m.Paginamar6Page) },  {
+    path: 'examenes',
+    loadComponent: () => import('./examenes/examenes.page').then( m => m.ExamenesPage)
+  },
+  {
+    path: 'nuevoexamen',
+    loadComponent: () => import('./nuevoexamen/nuevoexamen.page').then( m => m.NuevoexamenPage)
+  }
+
 ];
 
 

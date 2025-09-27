@@ -1,0 +1,20 @@
+ion-content {
+  --background: var(--ion-color-light);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.perfil-header {
+  --background: var(--ion-color-primary); // Tu verde cyan
+  color: var(--ion-color-primary-contrast); // Texto blanco
+
+  ion-item {
+    --background: transparent; // Para que herede el color del header
+  }
+}
+
+// Regla para que las tarjetas sean blancas por defecto
+ion-card {
+    --background:  #00cc99;
+}
