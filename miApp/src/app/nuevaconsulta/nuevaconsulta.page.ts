@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonIcon, IonItem } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-nuevoexamen',
-  templateUrl: './nuevoexamen.page.html',
-  styleUrls: ['./nuevoexamen.page.scss'],
+  selector: 'app-nuevaconsulta',
+  templateUrl: './nuevaconsulta.page.html',
+  styleUrls: ['./nuevaconsulta.page.scss'],
   standalone: true,
   imports: [
     CommonModule, 
@@ -16,10 +16,10 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonIc
     IonButton, IonInput, IonIcon, IonItem
   ]
 })
-export class NuevoexamenPage {
+export class NuevaconsultaPage {
   @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
   
-  fechaExamen: string = '';
+  fechaConsulta: string = '';
   centroMedico: string = '';
 
   onFileSelected(event: any) {
@@ -34,7 +34,7 @@ export class NuevoexamenPage {
   }
 
   guardar() {
-    console.log("Fecha:", this.fechaExamen);
+    console.log("Fecha:", this.fechaConsulta);
     console.log("Centro Médico:", this.centroMedico);
   }
 }

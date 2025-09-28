@@ -39,7 +39,7 @@
   </ion-card>
   
   <!-- Lista de consultas -->
-  <ion-list>
+  <ion-list class="bordered-list">
     <ion-item button detail="true">Consulta 1 - fecha 01/12/2024</ion-item>
     <ion-item button detail="true">Consulta 2 - fecha 02/11/2024</ion-item>
     <ion-item button detail="true">Consulta 3 - fecha 03/10/2024</ion-item>
@@ -52,6 +52,10 @@
       Última consulta: Hace 20 días
     </ion-card-content>
   </ion-card>
+
+  <ion-button expand="block" routerLink="/nuevaconsulta">
+    Añadir consulta
+  </ion-button>  
 
   <!-- Botón volver -->
   <ion-button expand="block" color="medium" routerLink="/home">

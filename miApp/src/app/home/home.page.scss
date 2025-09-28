@@ -34,17 +34,12 @@ ion-content {
   align-items: center;
 }
 
-
-
-
-
 .ficha-titulo {
   font-size: 1.2rem;
   font-weight: bold;
   color: #555;
   margin-top: 10px;
 }
-
 
 .perfil-header {
   --background: var(--ion-color-primary); 
@@ -59,7 +54,12 @@ ion-content {
   }
 }
 
-
+.tarjeta-clara {
+    border: 2px solid #181d1c;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px;
+}
 
 ion-content {
   --background: var(--ion-color-light);

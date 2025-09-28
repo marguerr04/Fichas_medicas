@@ -14,6 +14,13 @@ ion-content {
   }
 }
 
+.bordered-list {
+    border: 5px solid #00cc99;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px;
+}
+
 // Regla para que las tarjetas sean blancas por defecto
 ion-card {
     --background:  #00cc99;

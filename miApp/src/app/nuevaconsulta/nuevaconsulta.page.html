@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Subir Nuevo Examen</ion-title>
+    <ion-title>Subir Nueva Consulta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +35,7 @@
   />
 
   <!-- Inputs -->
-  <ion-input label="Fecha del examen" type="date" [(ngModel)]="fechaExamen"></ion-input>
+  <ion-input label="Fecha de la consulta" type="date" [(ngModel)]="fechaConsulta"></ion-input>
 
   <ion-input 
     label="Centro médico:" 
@@ -44,11 +44,11 @@
   </ion-input>
 
   <!-- Guardar -->
-  <ion-button expand="block" color="success" (click)="guardar()" routerLink="/examenes">
-    Añadir examen
+  <ion-button expand="block" color="success" (click)="guardar()" routerLink="/paginamar2">
+    Añadir consulta
   </ion-button>
 
-  <ion-button expand="block" color="danger" routerLink="/examenes">
+  <ion-button expand="block" color="danger" routerLink="/paginamar2">
     Cancelar
   </ion-button>
 </ion-content>
