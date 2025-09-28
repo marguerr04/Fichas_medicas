@@ -1,68 +1,120 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Necesario para *ngFor
-import { Observable } from 'rxjs';
-import { PacientesService } from '../core/servicios/pacientes';
-import { Paciente } from '../core/models/ficha-medica';
-
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonCardHeader,
-  IonItem,
-  IonAvatar,
-  IonLabel,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
-  IonIcon,
-  IonButton,
-  IonButtons,
-  IonMenuButton,
+  IonContent, IonHeader, IonTitle, IonToolbar,
+  IonList, IonItem, IonLabel, IonInput, IonButton, IonNote,
+  IonToast, ToastController
 } from '@ionic/angular/standalone';
+import { Observable } from 'rxjs';
+import { ConsultasService } from '../core/servicios/consultas';
+import { Consulta } from '../core/models/ficha-medica';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: true, // Se añade la propiedad standalone
+  standalone: true,
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   imports: [
-    CommonModule, // Se añade CommonModule para usar *ngFor y el pipe async
-    RouterModule,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonCard,
-    IonCardHeader,
-    IonItem,
-    IonAvatar,
-    IonLabel,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    IonIcon,
-    IonButton,
-    IonButtons,
-    IonMenuButton
+    CommonModule, ReactiveFormsModule,
+    IonContent, IonHeader, IonTitle, IonToolbar,
+    IonList, IonItem, IonLabel, IonInput, IonButton, IonNote,
+    IonToast
   ],
 })
 export class HomePage implements OnInit {
-  public pacientes$!: Observable<Paciente[]>;
+  private fb = inject(FormBuilder);
+  private consultasSrv = inject(ConsultasService);
+  private toastCtrl = inject(ToastController);
 
-  // Se unifican los dos constructores en uno solo
-  constructor(private pacientesService: PacientesService) {}
+  consultas$!: Observable<Consulta[]>;
+  isEditing = false;
+  editingId: string | null = null;
+
+  form = this.fb.group({
+    motivo: ['', [Validators.required, Validators.minLength(5)]],
+    diagnostico: [''],
+    pacienteId: ['PAC001', Validators.required] // Valor fijo para pruebas
+  });
 
   ngOnInit() {
-    this.pacientes$ = this.pacientesService.getPacientes();
+    this.consultas$ = this.consultasSrv.listar();
+  }
+
+  async agregar() {
+    if (this.form.invalid) return;
+    
+    try {
+      const { motivo, diagnostico, pacienteId } = this.form.value;
+      
+      if (this.isEditing && this.editingId) {
+        // UPDATE
+        await this.consultasSrv.actualizar(this.editingId, {
+          motivo: motivo!,
+          diagnostico: diagnostico || undefined
+        });
+        this.mostrarMensaje('Consulta actualizada con éxito', 'success');
+        this.cancelarEdicion();
+      } else {
+        // CREATE
+        await this.consultasSrv.agregar({ 
+          motivo: motivo!, 
+          diagnostico: diagnostico || undefined,
+          pacienteId: pacienteId!
+        });
+        this.mostrarMensaje('Consulta creada con éxito', 'success');
+      }
+      
+      this.form.reset();
+      this.form.patchValue({ pacienteId: 'PAC001' });
+      
+    } catch (error) {
+      console.error('Error:', error);
+      this.mostrarMensaje('Error al crear consulta', 'danger');
+    }
+  }
+
+  editar(consulta: Consulta) {
+    this.isEditing = true;
+    this.editingId = consulta.id || null;
+    
+    this.form.patchValue({
+      motivo: consulta.motivo,
+      diagnostico: consulta.diagnostico,
+      pacienteId: consulta.pacienteId
+    });
+  }
+
+  cancelarEdicion() {
+    this.isEditing = false;
+    this.editingId = null;
+    this.form.reset();
+    this.form.patchValue({ pacienteId: 'PAC001' });
+  }
+
+  eliminar(consulta: Consulta) {
+    if (consulta.id) {
+      try {
+        this.consultasSrv.eliminar(consulta.id);
+        this.mostrarMensaje('Consulta eliminada con éxito', 'success');
+      } catch (error) {
+        this.mostrarMensaje('Error al eliminar consulta', 'danger');
+      }
+    }
+  }
+
+  // Función para mostrar mensajes toast
+  async mostrarMensaje(mensaje: string, color: string) {
+    const toast = await this.toastCtrl.create({
+      message: mensaje,
+      duration: 3000,
+      color: color,
+      position: 'bottom'
+    });
+    await toast.present();
+  }
+
+  get botonTexto() {
+    return this.isEditing ? 'Actualizar' : 'Agregar';
   }
 }

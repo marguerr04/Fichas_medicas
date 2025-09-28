@@ -68,6 +68,9 @@ export interface Paciente {
   condicionesCronicas: DiagnosticoAnidado[]; // Para acceso rápido en emergencias
 }
 
+
+
+/* Consulta compleja a implementar despues 
 export interface Consulta {
   id?: string;
   pacienteId: string; // FK a la colección 'pacientes'
@@ -90,6 +93,28 @@ export interface Consulta {
       indicaciones?: string;
   }[];
 }
+*/
+
+export interface Consulta {
+  id?: string;
+  pacienteId: string;
+  motivo: string; // Campo principal para el formulario
+  diagnostico?: string; // Campo secundario opcional
+  fecha: Timestamp;
+  // Campos simplificados (con valores por defecto en el servicio)
+  medico: {
+    id: string;
+    nombre: string;
+  };
+  tipoConsulta: string;
+  diagnosticos: any[]; // Simplificado
+  ordenesMedicas?: any[]; // Simplificado
+}
+
+
+
+
+
 
 export interface Examen {
   id?: string;

@@ -1,23 +1,50 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { 
+  Firestore, 
+  collection, 
+  collectionData, 
+  addDoc, 
+  doc, 
+  deleteDoc, 
+  updateDoc,
+  query,
+  orderBy,
+  Timestamp 
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Paciente } from '../models/ficha-medica'; // Importamos el "molde" del paciente
+import { Paciente } from '../models/ficha-medica';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacientesService {
   private firestore: Firestore = inject(Firestore);
-  // Apuntamos a la colección "pacientes" en Firestore. Si no existe, se creará.
   private pacientesCollection = collection(this.firestore, 'pacientes');
 
   constructor() { }
 
-  // Función para obtener todos los pacientes en tiempo real
+  // READ - Obtener todos los pacientes ordenados por fecha de creación
   getPacientes(): Observable<Paciente[]> {
-    // collectionData nos devuelve un Observable que se actualiza automáticamente
-    return collectionData(this.pacientesCollection, { idField: 'id' }) as Observable<Paciente[]>;
+    const q = query(this.pacientesCollection, orderBy('fechaNac', 'desc'));
+    return collectionData(q, { idField: 'id' }) as Observable<Paciente[]>;
   }
 
-  // Aquí podrías añadir más funciones en el futuro (addPaciente, deletePaciente, etc.)
+  // CREATE - Añadir un nuevo paciente
+  addPaciente(paciente: Paciente) {
+    // Removemos el id si existe para que Firestore genere uno nuevo
+    const { id, ...pacienteData } = paciente;
+    return addDoc(this.pacientesCollection, pacienteData);
+  }
+
+  // UPDATE - Actualizar un paciente existente
+  updatePaciente(id: string, paciente: Partial<Paciente>) {
+    const pacienteDoc = doc(this.firestore, `pacientes/${id}`);
+    return updateDoc(pacienteDoc, paciente);
+  }
+
+  // DELETE - Eliminar un paciente
+  deletePaciente(id: string) {
+    const pacienteDoc = doc(this.firestore, `pacientes/${id}`);
+    return deleteDoc(pacienteDoc);
+  }
 }

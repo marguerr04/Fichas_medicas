@@ -1,29 +1,62 @@
-<ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-md="6" offset-md="3">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Consultas Médicas - CRUD</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-        <ion-card *ngFor="let paciente of pacientes$ | async">
-          <ion-card-header class="perfil-header">
-            <ion-item lines="none">
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-              </ion-avatar>
-              <ion-label>
-                <ion-card-title>{{ paciente.nombre }}</ion-card-title>
-                <ion-card-subtitle>ID: {{ paciente.id }}</ion-card-subtitle>
-                <ion-card-subtitle>RUT: {{ paciente.rut }}-{{ paciente.dv }}</ion-card-subtitle>
-              </ion-label>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button expand="block" color="primary" [routerLink]="['/paginamar1']">
-              Ver historial médico
-            </ion-button>
-          </ion-card-content>
-        </ion-card>
+<ion-content class="ion-padding">
+  <!-- Formulario -->
+  <form [formGroup]="form" (ngSubmit)="agregar()">
+    <ion-item>
+      <ion-label position="stacked">Motivo de Consulta</ion-label>
+      <ion-input formControlName="motivo" placeholder="Ej: Dolor de cabeza"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Diagnóstico</ion-label>
+      <ion-input formControlName="diagnostico" placeholder="(opcional)"></ion-input>
+    </ion-item>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-item>
+      <ion-label position="stacked">ID Paciente</ion-label>
+      <ion-input formControlName="pacienteId" placeholder="PAC001"></ion-input>
+    </ion-item>
+
+    <div style="margin-top:12px;">
+      <ion-button type="submit" [disabled]="form.invalid">
+        {{ botonTexto }}
+      </ion-button>
+      
+      <ion-button 
+        *ngIf="isEditing" 
+        fill="outline" 
+        color="medium"
+        (click)="cancelarEdicion()">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+
+  <!-- Lista de consultas -->
+  <ion-list style="margin-top:20px;">
+    <ion-item *ngFor="let consulta of (consultas$ | async)">
+      <ion-label>
+        <h2>{{ consulta.motivo }}</h2>
+        <p *ngIf="consulta.diagnostico">{{ consulta.diagnostico }}</p>
+        <ion-note>
+          Paciente: {{ consulta.pacienteId }} | 
+          Fecha: {{ consulta.fecha.toDate() | date:'short' }}
+        </ion-note>
+      </ion-label>
+      
+      <div slot="end">
+        <ion-button fill="clear" color="warning" (click)="editar(consulta)">
+          Editar
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="eliminar(consulta)">
+          Eliminar
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
