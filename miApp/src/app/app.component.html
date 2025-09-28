@@ -16,6 +16,13 @@
           <ion-icon name="document-text-outline" slot="start"></ion-icon>
           <ion-label>Historial Completo</ion-label>
         </ion-item>
+
+
+
+        <ion-item [routerLink]="['/gestion-consultas']">
+  <ion-icon name="medical-outline" slot="start"></ion-icon>
+  <ion-label>Gestión Consultas</ion-label>
+</ion-item>
         
         <ion-item (click)="cerrarSesion()" button>
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
