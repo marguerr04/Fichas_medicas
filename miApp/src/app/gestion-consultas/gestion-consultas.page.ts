@@ -4,11 +4,12 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar,
   IonList, IonItem, IonLabel, IonInput, IonButton, IonNote,
-  IonToast, ToastController
+  IonToast, ToastController, IonButtons, IonMenuButton, IonBreadcrumbs, IonBreadcrumb
 } from '@ionic/angular/standalone';
 import { Observable } from 'rxjs';
 import { ConsultasService } from '../core/servicios/consultas';
 import { Consulta } from '../core/models/ficha-medica';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-consultas',
@@ -19,7 +20,8 @@ import { Consulta } from '../core/models/ficha-medica';
     CommonModule, ReactiveFormsModule,
     IonContent, IonHeader, IonTitle, IonToolbar,
     IonList, IonItem, IonLabel, IonInput, IonButton, IonNote,
-    IonToast
+    IonToast, IonButtons, IonMenuButton, IonBreadcrumbs, IonBreadcrumb,
+    RouterModule
   ],
 })
 export class GestionConsultasPage implements OnInit {

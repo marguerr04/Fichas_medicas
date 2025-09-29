@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { personCircleOutline, documentTextOutline, logOutOutline } from 'ionicons/icons';
+import { personCircleOutline, documentTextOutline, logOutOutline, pencilOutline} from 'ionicons/icons';
 import {
   IonApp,
   IonMenu,
@@ -42,6 +42,7 @@ export class AppComponent {
       personCircleOutline,
       documentTextOutline,
       logOutOutline,
+      pencilOutline
     });
   }
 
