@@ -5,14 +5,11 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <!-- Zona drag & drop -->
   <div class="upload-box">
     <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
     <p>Arrastra tu archivo PDF o imagen aquí</p>
   </div>
 
-  <!-- Botones -->
   <div class="actions">
     <ion-button expand="block" fill="outline">
       <ion-icon name="camera-outline" slot="start"></ion-icon>
@@ -25,7 +22,6 @@
     </ion-button>
   </div>
 
-  <!-- Input file ÚNICO -->
   <input 
     type="file" 
     hidden 
@@ -34,7 +30,6 @@
     accept=".pdf,image/*"
   />
 
-  <!-- Inputs -->
   <ion-input label="Fecha de la consulta" type="date" [(ngModel)]="fechaConsulta"></ion-input>
 
   <ion-input 
@@ -43,7 +38,6 @@
     placeholder=" ">
   </ion-input>
 
-  <!-- Guardar -->
   <ion-button expand="block" color="success" (click)="guardar()" routerLink="/paginamar2">
     Añadir consulta
   </ion-button>

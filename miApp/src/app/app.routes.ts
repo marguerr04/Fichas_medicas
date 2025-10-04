@@ -68,7 +68,11 @@ export const routes: Routes = [
   {
     path: 'gestion-consultas',
     loadComponent: () => import('./gestion-consultas/gestion-consultas.page').then( m => m.GestionConsultasPage)
+  },  {
+    path: 'datos-emergencia',
+    loadComponent: () => import('./datos-emergencia/datos-emergencia.page').then( m => m.DatosEmergenciaPage)
   },
+
 ];
 
 

@@ -16,7 +16,6 @@
 
 
 <ion-content class="ion-padding">
-  <!-- Formulario -->
   <form [formGroup]="form" (ngSubmit)="agregar()">
     <ion-item>
       <ion-label position="stacked">Motivo de Consulta</ion-label>
@@ -48,7 +47,6 @@
     </div>
   </form>
 
-  <!-- Lista de consultas -->
   <ion-list style="margin-top:20px;">
     <ion-item *ngFor="let consulta of (consultas$ | async)">
       <ion-label>

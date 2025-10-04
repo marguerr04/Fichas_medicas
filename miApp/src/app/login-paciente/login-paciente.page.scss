@@ -19,7 +19,7 @@ ion-content {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 
 
-   overflow: hidden; // recorte de la imagen si sobra
+   overflow: hidden;
 
   img {
     width: 100%; 
@@ -51,22 +51,20 @@ ion-item {
 
 
 ion-content {
-  // Un fondo claro y limpio
   --background: var(--ion-color-light);
 }
 
 .login-logo {
-  font-size: 100px; // Tamaño del icono
+  font-size: 100px;
   margin-bottom: 20px;
 }
 
 .login-title {
-  // Texto oscuro sobre fondo claro
   color: var(--ion-color-dark);
   font-weight: 600;
 }
 
 ion-button {
   margin-top: 30px;
-  height: 48px; // Botón más prominente
+  height: 48px;
 }

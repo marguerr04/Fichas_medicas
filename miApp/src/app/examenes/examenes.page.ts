@@ -18,7 +18,7 @@ interface Examen {
   imports: [CommonModule, RouterModule, IonicModule, FormsModule, PacienteHeaderComponent]
 })
 export class ExamenesPage {
-   patientName: string = 'Juan Peréz'; // <-- La página puede tener sus propias variables
+   patientName: string = 'Juan Peréz'; 
    mostrarFiltro: boolean = false;
    filtroSeleccionado: string = 'todos';
 

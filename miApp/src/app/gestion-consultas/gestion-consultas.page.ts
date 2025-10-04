@@ -36,7 +36,7 @@ export class GestionConsultasPage implements OnInit {
   form = this.fb.group({
     motivo: ['', [Validators.required, Validators.minLength(5)]],
     diagnostico: [''],
-    pacienteId: ['PAC001', Validators.required] // Valor fijo para pruebas
+    pacienteId: ['PAC001', Validators.required]
   });
 
   ngOnInit() {
@@ -50,7 +50,6 @@ export class GestionConsultasPage implements OnInit {
       const { motivo, diagnostico, pacienteId } = this.form.value;
       
       if (this.isEditing && this.editingId) {
-        // UPDATE
         await this.consultasSrv.actualizar(this.editingId, {
           motivo: motivo!,
           diagnostico: diagnostico || undefined
@@ -58,7 +57,6 @@ export class GestionConsultasPage implements OnInit {
         this.mostrarMensaje('Consulta actualizada con éxito', 'success');
         this.cancelarEdicion();
       } else {
-        // CREATE
         await this.consultasSrv.agregar({ 
           motivo: motivo!, 
           diagnostico: diagnostico || undefined,
@@ -105,7 +103,6 @@ export class GestionConsultasPage implements OnInit {
     }
   }
 
-  // Función para mostrar mensajes toast
   async mostrarMensaje(mensaje: string, color: string) {
     const toast = await this.toastCtrl.create({
       message: mensaje,

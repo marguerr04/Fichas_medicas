@@ -14,7 +14,6 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <!-- Logo + Título centrado -->
   <ion-card>
     <ion-card-header>
       <ion-item lines="none">
@@ -28,9 +27,7 @@
     </ion-card-header>
   </ion-card>
   
-    <!-- Contenedor de la lista con header personalizado -->
   <div class="list-container">
-    <!-- Header de la lista con título y botón de filtro -->
     <div class="list-header">
       <h3>Lista de Exámenes</h3>
       <ion-button fill="clear" size="small" (click)="toggleFiltro()">
@@ -38,7 +35,7 @@
       </ion-button>
     </div>
 
-    <!-- Filtro desplegable -->
+
     <div class="filter-section" *ngIf="mostrarFiltro">
       <ion-segment [(ngModel)]="filtroSeleccionado" (ionChange)="aplicarFiltro()">
         <ion-segment-button value="todos">
@@ -53,7 +50,6 @@
       </ion-segment>
     </div>
 
-    <!-- Lista de exámenes -->
     <ion-list class="bordered-list">
       <ion-item 
         button 
@@ -63,7 +59,6 @@
       </ion-item>
     </ion-list>
 
-    <!-- Mensaje si no hay exámenes -->
     <div *ngIf="examenesFiltrados.length === 0" class="empty-state">
       <ion-icon name="document-outline" size="large"></ion-icon>
       <p>No hay exámenes para mostrar</p>
@@ -80,7 +75,6 @@
     Añadir exámen
   </ion-button>  
 
-  <!-- Botón volver -->
   <ion-button expand="block" color="medium" routerLink="/home">
     Volver a Home
   </ion-button>  

@@ -10,7 +10,6 @@
   <ion-breadcrumb routerLink="/paginamar2">Consultas</ion-breadcrumb>
 </ion-breadcrumbs>
 
-    <!-- Botón de filtro a la derecha del toolbar -->
     <ion-buttons slot="end">
       <ion-button fill="clear">
         <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
@@ -21,7 +20,6 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <!-- Logo + Título centrado -->
   <ion-card>
 
     
@@ -38,13 +36,11 @@
     </ion-card-header>
   </ion-card>
   
-  <!-- Lista de consultas -->
   <app-consulta-list
     titulo="Consultas del Paciente"
     [consultas]="consultas">
   </app-consulta-list>
 
-  <!-- Última consulta destacada -->
   <ion-card color="danger">
     <ion-card-content class="ion-text-center">
       Última consulta: Hace 20 días
@@ -60,7 +56,6 @@
   </ion-button>
 
 
-  <!-- Botón volver -->
   <ion-button expand="block" color="medium" routerLink="/home">
     Volver a Home
   </ion-button>
