@@ -15,29 +15,26 @@
   <div class="container">
 
   <app-paciente-header
-    [titulo]="'Historial del paciente ' + patientName"
-    subtitulo="Seleccione una opción para continuar">
+    [titulo]="'Historial de ' + patientName"
+    subtitulo="">
   </app-paciente-header>
 
-    <ion-card>
-      <ion-card-content>
-        <ion-button routerLink="/paginamar2" expand="block" color="success">
-          Consultas
-        </ion-button>
+  <app-card-content>
+    <ion-button routerLink="/paginamar2" expand="block" color="success">
+      Consultas
+    </ion-button>
 
-        <ion-button routerLink="/examenes" expand="block" color="success">
-          Exámenes
-        </ion-button>
+    <ion-button routerLink="/examenes" expand="block" color="success">
+      Exámenes
+    </ion-button>
 
-        <ion-button expand="block" color="success">
-          Operaciones
-        </ion-button>
+    <ion-button expand="block" color="success">
+      Operaciones
+    </ion-button>
         
-        <ion-button expand="block" class="scan-button">
-          Escaneos totales: {{ totalScans }}
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-
+    <ion-button expand="block" class="scan-button">
+      Escaneos totales: {{ totalScans }}
+    </ion-button>
+  </app-card-content>
   </div>
 </ion-content>

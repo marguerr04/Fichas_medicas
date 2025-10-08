@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PacienteHeaderComponent } from '../componentes/paciente-header/paciente-header.component';
-
-
+import { CardContentComponent } from '../componentes/card-content/card-content.component';
 import {
   IonHeader,
   IonToolbar,
@@ -28,9 +27,8 @@ import {
   standalone: true,
   imports: [
     RouterModule,
-
     PacienteHeaderComponent,
-
+    CardContentComponent,
     IonHeader,
     IonToolbar,
     IonTitle,

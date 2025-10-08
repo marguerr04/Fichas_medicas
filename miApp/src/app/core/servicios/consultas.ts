@@ -23,13 +23,11 @@ export class ConsultasService {
 
   constructor() { }
 
-  // READ - Listar consultas ordenadas por fecha
   listar(): Observable<Consulta[]> {
     const q = query(this.ref, orderBy('fecha', 'desc'));
     return collectionData(q, { idField: 'id' }) as Observable<Consulta[]>;
   }
 
-  // CREATE - Agregar nueva consulta
   agregar(data: { motivo: string; diagnostico?: string; pacienteId: string }) {
     const consulta = {
       ...data,
@@ -42,13 +40,12 @@ export class ConsultasService {
     return addDoc(this.ref, consulta);
   }
 
-  // UPDATE - Actualizar consulta
   actualizar(id: string, data: Partial<Consulta>) {
     const consultaDoc = doc(this.firestore, `consultas/${id}`);
     return updateDoc(consultaDoc, data);
   }
 
-  // DELETE - Eliminar consulta
+
   eliminar(id: string) {
     const consultaDoc = doc(this.firestore, `consultas/${id}`);
     return deleteDoc(consultaDoc);
