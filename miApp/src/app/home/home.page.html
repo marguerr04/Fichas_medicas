@@ -32,18 +32,29 @@
             <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
             <p><strong>Institución médica:</strong> Hospital Padre Hurtado</p><br>
 
-            <ion-button class="login-button" expand="block" routerLink="/paginamar1">
-              Historial médico
+            <div class="botones-fila">
+            <ion-button class="login-button" routerLink="/paginamar2">
+              Consultas
             </ion-button>
-            <ion-button class="login-button" expand="block" routerLink="/datos-emergencia" >
+            <ion-button class="login-button" routerLink="/examenes">
+              Exámenes
+            </ion-button>
+            </div>
+
+            <div class="botones-fila">
+            <ion-button class="login-button" routerLink="/datos-emergencia" >
               Datos de emergencia
             </ion-button>
+            <ion-button class="login-button" routerLink="/datos-emergencia" >
+              Tratamiento
+            </ion-button>
+            </div>
           </ion-card-content>
         </ion-card>
 
-  <ion-card color="light" class="tarjeta-clara">
-    <ion-card-content >
-      <h2 class="ficha-titulo ion-text-center" style="transform: rotate(0deg)" color=#000000>Ficha médica general</h2>
+  <ion-card class="tarjeta-clara">
+    <ion-card-content>
+      <h1>Ficha médica general</h1>
     </ion-card-content>
     <ion-card-header>
       <ion-button class="login-button2" expand="block">

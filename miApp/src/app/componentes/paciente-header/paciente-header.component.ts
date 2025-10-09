@@ -30,6 +30,7 @@ import {
 export class PacienteHeaderComponent {
   @Input() titulo: string = '';
   @Input() subtitulo: string = '';
+  @Input() subtitulo2: string = '';
 
   constructor() {}
 }

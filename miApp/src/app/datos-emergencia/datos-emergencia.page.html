@@ -12,17 +12,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="container">
-
   <app-paciente-header
-    [titulo]="'Datos de emergencia de: ' + patientName"
-    subtitulo="Rut: 12345678-9 | Contacto emergencia: +56 9 1234 5678">
+    [titulo]='patientName'
+    subtitulo="Rut: 12345678-9" 
+    subtitulo2="Contacto emergencia: +56 9 1234 5678">
   </app-paciente-header>
-
-  <div class="list-container">
-    <div class="list-header">
+  <br>
+  <div class="content-header">
       <h3>Datos de emergencia:</h3>
-    </div>
 
   <ion-list class="bordered-list">
     <ion-item 
@@ -60,11 +57,12 @@
         <p><strong>Puede recibir:</strong> A-, B-, AB- y O-</p></div>
     </ion-item>
   </ion-list>
+
+  <div class="botones-fila">
+    <ion-button class="login-button" routerLink="/home">
+      Home
+    </ion-button>
   </div>
 
-  <ion-button expand="block" color="success" routerLink="/home">
-    Home
-  </ion-button>  
-
-</div>
+  </div>  
 </ion-content>
