@@ -11,7 +11,7 @@
   </div>
 
   <div class="actions">
-    <ion-button expand="block" fill="outline">
+    <ion-button expand="block" fill="outline" (click)="tomarFoto()">
       <ion-icon name="camera-outline" slot="start"></ion-icon>
       Tomar una Foto
     </ion-button>
@@ -29,6 +29,15 @@
     (change)="onFileSelected($event)"
     accept=".pdf,image/*"
   />
+
+  <div *ngIf="fotoTomada" class="foto-preview">
+    <h4>Vista previa de la foto:</h4>
+    <img [src]="fotoTomada" alt="Foto tomada" class="imagen-preview">
+    <ion-button expand="block" color="danger" size="small" (click)="eliminarFoto()">
+      <ion-icon name="trash-outline" slot="start"></ion-icon>
+      Eliminar Foto
+    </ion-button>
+  </div>
 
   <ion-input label="Fecha del examen" type="date" [(ngModel)]="fechaExamen"></ion-input>
 
