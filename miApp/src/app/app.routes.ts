@@ -72,6 +72,10 @@ export const routes: Routes = [
     path: 'datos-emergencia',
     loadComponent: () => import('./datos-emergencia/datos-emergencia.page').then( m => m.DatosEmergenciaPage)
   },
+  {
+    path: 'test-conexion',
+    loadComponent: () => import('./test-conexion/test-conexion.page').then( m => m.TestConexionPage)
+  },
 
 ];
 
