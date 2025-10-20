@@ -1,81 +1,16 @@
-.ficha-titulo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #000000;
-  margin-top: 10px;
-}
-
-.perfil-header {
-  --background: #30cba1; 
-  color: #000000;
-  border: 5px solid #000000;
-  border-radius: 5px;
-  width: 100%;
-  margin: 0;
-
-  ion-item {
-    --background: transparent;
-    width: 100%;
-  }
-  ion-card-title,
-  ion-card-subtitle {
-    color: #ffffff !important;
-  }
-}
-
-.content-header {
-  color: #363636;
-  border: 5px solid #000000;
-  border-radius: 5px;
-  border-top: none;
-  width: 100%;
-  p {
-    color: White
-  }
-}
-
-.botones-fila {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px; 
-  margin-top: 16px;
-  justify-items: center;
-
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
-  }
-}
-
 .login-button {
-  width: 20%;
-  flex: 1;
-  margin: center;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 300px;
   min-height: 50px;
-  min-width: 150px;
-  background: #30cba1;
+  --background: linear-gradient(135deg, #30cba1 0%, #9ce3eb 100%);
   color: #000000;
   font-weight: bold;
-  border: 3px solid #ffffff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-button2 {
-  width: 20%;
-  flex: 1;
-  margin: auto;
-  min-height: 50px;
-  min-width: 150px;
-  background: #30cba1;
-  color: #000000;
-  font-weight: bold;
-  border: 3px solid #000000;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-items: center;
+  border: 4px solid #000000;
+  border-radius: 6px;
 }
 
 .tarjeta-clara {
@@ -93,6 +28,45 @@
     }
 }
 
+.lugar-imagen {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border: 5px solid #000000;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  height: fit-content;
+  min-height: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.modal-con-lengua {
+  --border-radius: 24px 24px 0 0;
+  --max-width: 600px;
+  text-align: center;
+
+  &::part(content) {
+    border: 4px solid #000000;
+    border-bottom: none;
+  }
+}
+
+.modal-contenido {
+  --background: #666;
+  position: relative;
+}
+
 ion-content {
   --background: var(--ion-color-light);
+  --padding-bottom: 100px;
 }

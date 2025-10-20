@@ -19,48 +19,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
-  <ion-card>
-
-    
-    <ion-card-header>
-      <ion-item lines="none">
-
-        <ion-label>
-         <app-paciente-header
-    [titulo]="'Consultas del Paciente ' + patientName"
-    subtitulo="Revisa el detalle de las consultas realizadas">
-  </app-paciente-header>
-        </ion-label>
-      </ion-item>
-    </ion-card-header>
-  </ion-card>
+  <app-cabeza-perfil
+    [nombre]="patientName"
+    [t_sangre]="patientBlood"
+    [n_emergencia]="patientNemergency">
+  </app-cabeza-perfil>
   
-  <app-consulta-list
+  <app-lista-archivos
     titulo="Consultas del Paciente"
-    [consultas]="consultas">
-  </app-consulta-list>
-
-  <ion-card color="danger">
-    <ion-card-content class="ion-text-center">
-      Última consulta: Hace 20 días
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button expand="block" routerLink="/nuevaconsulta">
-    Añadir consulta
-  </ion-button>  
-
-  <ion-button expand="block" routerLink="/gestion-consultas">
-    Gestionar consultas
-  </ion-button>
-
-
-  <ion-button expand="block" color="medium" routerLink="/home">
-    Volver a Home
-  </ion-button>
-
-
-
-  
+    [consultas]="consultas"
+    [warning]="warning"
+    [botones]="botonesA">
+  </app-lista-archivos>  
 </ion-content>

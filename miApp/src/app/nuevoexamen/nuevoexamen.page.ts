@@ -26,18 +26,16 @@ export class NuevoexamenPage {
   
   fechaExamen: string = '';
   centroMedico: string = '';
-  fotoTomada: string | null = null; // Para almacenar la foto
+  fotoTomada: string | null = null;
 
   constructor(
-    private cameraService: CameraService, // Inyecta el servicio
+    private cameraService: CameraService,
     private alertController: AlertController,
     private router: Router
   ) {}
 
-  // Método para tomar foto con la cámara
   async tomarFoto() {
     try {
-      // Verificar permisos primero
       const permisos = await this.cameraService.solicitarPermisosCamara();
       
       if (!permisos) {
@@ -45,22 +43,16 @@ export class NuevoexamenPage {
         return;
       }
 
-      // Tomar la foto
       const fotoDataUrl = await this.cameraService.tomarFoto();
       this.fotoTomada = fotoDataUrl;
-      
-      // Opcional: guardar localmente
       await this.cameraService.guardarFotoLocalmente(fotoDataUrl, 'ultima-foto-examen');
-      
       await this.mostrarMensaje('Éxito', 'Foto tomada correctamente');
-      
     } catch (error: any) {
       console.error('Error al tomar foto:', error);
       await this.mostrarMensaje('Error', error.message || 'No se pudo tomar la foto');
     }
   }
 
-  // Método para seleccionar de galería
   async seleccionarDeGaleria() {
     try {
       const fotoDataUrl = await this.cameraService.seleccionarDeGaleria();
@@ -76,7 +68,6 @@ export class NuevoexamenPage {
     const file = event.target.files[0];
     if (file) {
       console.log("Archivo seleccionado:", file.name, file.type, file.size);
-      // Aquí puedes procesar el archivo seleccionado
     }
   }
 
@@ -85,7 +76,6 @@ export class NuevoexamenPage {
   }
 
   async guardar() {
-    // Validaciones
     if (!this.fechaExamen) {
       await this.mostrarMensaje('Error', 'Por favor selecciona una fecha');
       return;
@@ -100,30 +90,23 @@ export class NuevoexamenPage {
     console.log("Centro Médico:", this.centroMedico);
     console.log("Foto:", this.fotoTomada ? 'Sí' : 'No');
 
-    // Aquí puedes enviar los datos al backend
-    // Por ejemplo: convertir la foto a Blob para enviar
     if (this.fotoTomada) {
       const fotoBlob = this.cameraService.dataUrlToBlob(this.fotoTomada);
       console.log("Foto en formato Blob:", fotoBlob);
     }
 
     await this.mostrarMensaje('Éxito', 'Examen guardado correctamente');
-    
-    // Opcional: navegar a otra página después de guardar
-    // this.router.navigate(['/examenes']);
   }
 
-  // Método auxiliar para mostrar mensajes
   private async mostrarMensaje(header: string, message: string) {
     const alert = await this.alertController.create({
       header,
       message,
-      buttons: ['OK']
+        buttons: ['OK']
     });
     await alert.present();
   }
 
-  // Método para eliminar la foto tomada
   eliminarFoto() {
     this.fotoTomada = null;
   }

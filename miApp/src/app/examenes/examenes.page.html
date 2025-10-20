@@ -13,69 +13,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  <app-cabeza-perfil
+    [nombre]="patientName"
+    [t_sangre]="patientBlood"
+    [n_emergencia]="patientNemergency">
+  </app-cabeza-perfil>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-item lines="none">
-        <ion-label>
-         <app-paciente-header
-    [titulo]="'Exámenes del Paciente ' + patientName"
-    subtitulo="Revisa el detalle de los exámenes realizadas">
-  </app-paciente-header>
-        </ion-label>
-      </ion-item>
-    </ion-card-header>
-  </ion-card>
-  
-  <div class="list-container">
-    <div class="list-header">
-      <h3>Lista de Exámenes</h3>
-      <ion-button fill="clear" size="small" (click)="toggleFiltro()">
-        <ion-icon name="filter" slot="icon-only"></ion-icon>
-      </ion-button>
-    </div>
-
-
-    <div class="filter-section" *ngIf="mostrarFiltro">
-      <ion-segment [(ngModel)]="filtroSeleccionado" (ionChange)="aplicarFiltro()">
-        <ion-segment-button value="todos">
-          <ion-label>Todos</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="recientes">
-          <ion-label>Más Recientes</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="antiguos">
-          <ion-label>Más Antiguos</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-    </div>
-
-    <ion-list class="bordered-list">
-      <ion-item 
-        button 
-        detail="true" 
-        *ngFor="let examen of examenesFiltrados; let i = index">
-        Exámen {{i + 1}} - fecha {{ examen.fecha | date:'dd/MM/yyyy' }}
-      </ion-item>
-    </ion-list>
-
-    <div *ngIf="examenesFiltrados.length === 0" class="empty-state">
-      <ion-icon name="document-outline" size="large"></ion-icon>
-      <p>No hay exámenes para mostrar</p>
-    </div>
-  </div>
-
-  <ion-card color="danger">
-    <ion-card-content class="ion-text-center">
-      Último exámen: Hace 5 meses y 6 días
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button expand="block" routerLink="/nuevoexamen">
-    Añadir exámen
-  </ion-button>  
-
-  <ion-button expand="block" color="medium" routerLink="/home">
-    Volver a Home
-  </ion-button>  
+  <app-lista-archivos
+    titulo="Examenes del Paciente"
+    [consultas]="examenes"
+    [warning]="warning"
+    [botones]="botonesA">
+  </app-lista-archivos>
 </ion-content>

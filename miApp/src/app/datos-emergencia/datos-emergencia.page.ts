@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PacienteHeaderComponent } from '../componentes/paciente-header/paciente-header.component';
+import { CabezaPerfilComponent } from '../componentes/cabeza-perfil/cabeza-perfil.component';
 import {IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardContent, IonButton,
   IonList, IonItem, IonLabel, IonBreadcrumbs, IonBreadcrumb, IonButtons, IonMenuButton,} from '@ionic/angular/standalone';
 
@@ -13,13 +14,17 @@ import {IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Ion
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonList, IonToolbar, CommonModule, RouterModule,
     IonCard, IonCardHeader, IonCardContent, IonButton, IonItem, IonLabel, IonBreadcrumbs, IonBreadcrumb, IonButtons, IonMenuButton, 
-    PacienteHeaderComponent, FormsModule]
+    PacienteHeaderComponent, FormsModule, CabezaPerfilComponent]
 })
 export class DatosEmergenciaPage implements OnInit {
-  patientName: string = 'Juan Peréz';
   mostrarAlergias: boolean = false;
   mostrarCondiciones: boolean = false;
   mostrarSangre: boolean = false;
+
+  patientName = 'Juan Pérez | id: 123';
+  patientBlood = 'AB-';
+  patientNemergency = '+56 9 1234 5678';
+
   constructor() { }
 
   ngOnInit() {

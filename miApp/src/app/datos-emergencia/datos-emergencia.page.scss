@@ -17,11 +17,13 @@ ion-content {
 .content-header {
   background-color: #363636;
   border: 5px solid #000000;
-  border-radius: 5px;
+  border-radius: 50px;
   width: 100%;
   h3 {
-    text-indent: 5px;
-    color: White
+    color: White;
+    text-align: center;
+    font-weight: bold;
+    margin: 15px;
   }
 }
 
@@ -68,11 +70,11 @@ ion-content {
   margin: center;
   min-height: 50px;
   min-width: 150px;
-  background: #30cba1;
+  --background: linear-gradient(135deg, #30cba1 0%, #9ce3eb 100%);
   color: #000000;
   font-weight: bold;
-  border: 3px solid #ffffff;
-  border-radius: 8px;
+  border: 6px solid #000000;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
