@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { 
   IonContent, IonHeader, IonTitle, IonToolbar, 
   IonButton, IonInput, IonIcon, IonItem,
@@ -16,7 +17,7 @@ import { CameraService } from '../services/camera';
   standalone: true,
   imports: [
     CommonModule, 
-    FormsModule, 
+    FormsModule, RouterModule,
     IonContent, IonHeader, IonTitle, IonToolbar, 
     IonButton, IonInput, IonIcon, IonItem
   ]
