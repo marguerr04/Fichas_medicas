@@ -26,11 +26,11 @@ export class ExamenesPage {
    patientNemergency = '+56 9 1234 5678'; 
 
    examenes = [
-    { nombre: 'Exámen 1', fecha: '2023-10-11' },
-    { nombre: 'Exámen 2', fecha: '2024-09-03' },
-    { nombre: 'Exámen 3', fecha: '2025-04-21' },
-    { nombre: 'Exámen 4', fecha: '2022-05-15' },
-    { nombre: 'Exámen 5', fecha: '2024-12-10' }
+    { nombre: 'Exámen 1', fecha: '2023/10/11' },
+    { nombre: 'Exámen 2', fecha: '2024/09/03' },
+    { nombre: 'Exámen 3', fecha: '2025/04/21' },
+    { nombre: 'Exámen 4', fecha: '2022/05/15' },
+    { nombre: 'Exámen 5', fecha: '2024/12/10' }
   ];
 
   botonesA = [
