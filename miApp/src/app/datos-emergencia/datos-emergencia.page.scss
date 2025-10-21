@@ -16,7 +16,7 @@ ion-content {
 
 .content-header {
   background-color: #363636;
-  border: 5px solid #000000;
+  border: 2px solid #000000;
   border-radius: 50px;
   width: 100%;
   h3 {
@@ -51,7 +51,7 @@ ion-content {
 }
 
 .bordered-list {
-    border: 5px solid #00cc99;
+    border: 3px solid #218b6f;
     border-radius: 20px;
     overflow: hidden;
     margin: 16px;
@@ -73,8 +73,8 @@ ion-content {
   --background: linear-gradient(135deg, #30cba1 0%, #9ce3eb 100%);
   color: #000000;
   font-weight: bold;
-  border: 6px solid #000000;
-  border-radius: 10px;
+  border: 3px solid #218b6f;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
