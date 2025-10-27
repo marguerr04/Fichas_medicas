@@ -12,11 +12,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <app-cabeza-perfil
-    [nombre]="patientName"
-    [t_sangre]="patientBlood"
-    [n_emergencia]="patientNemergency">
-  </app-cabeza-perfil>
+  <app-cabeza-perfil></app-cabeza-perfil>
   <br>
   <div class="content-header">
       <h3>Datos de emergencia</h3>
@@ -59,7 +55,7 @@
   </ion-list>
 
   <div class="botones-fila">
-    <ion-button class="login-button" routerLink="/home">
+    <ion-button class="home-button" routerLink="/home">
       Home
     </ion-button>
   </div><br>

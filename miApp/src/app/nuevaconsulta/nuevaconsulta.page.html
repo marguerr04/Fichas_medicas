@@ -1,48 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Subir Nueva Consulta</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-nuevo-archivo
+  titulo="Subir Nueva Consulta"
+  tipo="consulta"
+  textoBotonGuardar="Añadir"
+  rutaCancelar="/paginamar2"
 
-<ion-content class="ion-padding">
-  <div class="upload-box">
-    <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
-    <p>Arrastra tu archivo PDF o imagen aquí</p>
-  </div>
-
-  <div class="actions">
-    <ion-button expand="block" fill="outline" (click)="tomarFoto()">
-      <ion-icon name="camera-outline" slot="start"></ion-icon>
-      Tomar una Foto
-    </ion-button>
-
-    <ion-button expand="block" fill="outline" (click)="openFilePicker()">
-      <ion-icon name="folder-outline" slot="start"></ion-icon>
-      Buscar en Archivos
-    </ion-button>
-  </div>
-
-  <input 
-    type="file" 
-    hidden 
-    #fileInput 
-    (change)="onFileSelected($event)"
-    accept=".pdf,image/*"
-  />
-
-  <ion-input label="Fecha de la consulta" type="date" [(ngModel)]="fechaConsulta"></ion-input>
-
-  <ion-input 
-    label="Centro médico:" 
-    [(ngModel)]="centroMedico" 
-    placeholder=" ">
-  </ion-input>
-
-  <ion-button expand="block" color="success" (click)="guardar()" routerLink="/paginamar2">
-    Añadir consulta
-  </ion-button>
-
-  <ion-button expand="block" color="danger" routerLink="/paginamar2">
-    Cancelar
-  </ion-button>
-</ion-content>
+  (archivoGuardado)="onArchivoGuardado($event)"
+  (cancelado)="onCancelado()">
+</app-nuevo-archivo>

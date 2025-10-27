@@ -1,57 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Subir Nuevo Examen</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-nuevo-archivo
+  titulo="Subir Nuevo Examen"
+  tipo="examen"
+  textoBotonGuardar="Añadir"
+  rutaCancelar="/examenes"
 
-<ion-content class="ion-padding">
-  <div class="upload-box">
-    <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
-    <p>Arrastra tu archivo PDF o imagen aquí</p>
-  </div>
-
-  <div class="actions">
-    <ion-button expand="block" fill="outline" (click)="tomarFoto()">
-      <ion-icon name="camera-outline" slot="start"></ion-icon>
-      Tomar una Foto
-    </ion-button>
-
-    <ion-button expand="block" fill="outline" (click)="openFilePicker()">
-      <ion-icon name="folder-outline" slot="start"></ion-icon>
-      Buscar en Archivos
-    </ion-button>
-  </div>
-
-  <input 
-    type="file" 
-    hidden 
-    #fileInput 
-    (change)="onFileSelected($event)"
-    accept=".pdf,image/*"
-  />
-
-  <div *ngIf="fotoTomada" class="foto-preview">
-    <h4>Vista previa de la foto:</h4>
-    <img [src]="fotoTomada" alt="Foto tomada" class="imagen-preview">
-    <ion-button expand="block" color="danger" size="small" (click)="eliminarFoto()">
-      <ion-icon name="trash-outline" slot="start"></ion-icon>
-      Eliminar Foto
-    </ion-button>
-  </div>
-
-  <ion-input label="Fecha del examen" type="date" [(ngModel)]="fechaExamen"></ion-input>
-
-  <ion-input 
-    label="Centro médico:" 
-    [(ngModel)]="centroMedico" 
-    placeholder=" ">
-  </ion-input>
-
-  <ion-button expand="block" color="success" (click)="guardar()" routerLink="/examenes">
-    Añadir examen
-  </ion-button>
-
-  <ion-button expand="block" color="danger" routerLink="/examenes">
-    Cancelar
-  </ion-button>
-</ion-content>
+  (archivoGuardado)="onArchivoGuardado($event)"
+  (cancelado)="onCancelado()">
+</app-nuevo-archivo>
