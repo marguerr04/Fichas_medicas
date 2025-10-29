@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/core/servicios/backend.service';
-import { IonicModule } from '@ionic/angular'; // ✅ Importa Ionic
-import { CommonModule } from '@angular/common'; // ✅ Para ngIf, etc.
+import { IonicModule } from '@ionic/angular'; 
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-test-conexion',

@@ -24,7 +24,7 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes),
 
-     provideHttpClient(),
+    provideHttpClient(),
 
     // Llama a los providers directamente, sin importProvidersFrom
     provideFirebaseApp(() => initializeApp(environment.firebase)),
